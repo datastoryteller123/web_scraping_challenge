@@ -58,20 +58,22 @@
     <div>
         {{ mars_data.mars_facts_df|safe}}
     </div>  
-</div> 
+</div>
 
-<div 
+<div>
   class='container-fluid'>
     <div class = "col-md-12">
-      <div>
-     src = "{{% for hemisphere in mars.hemis_image_url|safe}}"
-    </div>
-    <h2> 
-      {{hemisphere.title|safe}}
-    </h2>
+      <div class='row'>{{% for item in mars_data.mars_hemisphere %}}
+  
+    <img src="{{item.img_url}}"/>
+        <div>
+          <p>
+            {{item.title}}
+          </p>
+        </div>
+        {% end for %} 
 
-</div> 
-
+</div>
 </body>
 
 </html>

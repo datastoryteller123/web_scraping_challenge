@@ -21,10 +21,10 @@ def scrape_mars_news():
         # Scrape page into Soup
         html = browser.html
         soup = bs(html, "html.parser")
-        news_soup = soup.select_one('ul.item_list li.slide')
+        news_soup = soup.select_one('ul.item_list  li.slide')
             
         # Scraping the latest News Title and Paragraph Text
-        news_title = news_soup.find('div', class_='content_title').text
+        news_title = news_soup.find('div', class_='content_title').find('a').text
         paragraph_text = news_soup.find('div', class_='article_teaser_body').text
             
         # Print the News Title and Paragraph Text
